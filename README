@@ -1,0 +1,101 @@
+Elara Lace – Minimalist Lingerie Homepage
+
+Elara Lace is a refined and minimalist e-commerce homepage designed to showcase a luxury lingerie brand through clean UI, strong typography, and soft visual storytelling.
+This project was built as part of a personal portfolio to demonstrate front-end development skills, HTML/CSS structure, component styling, and custom branding integration.
+
+The result is a fast, elegant, and responsive landing page that mirrors the sophistication and femininity of the brand.
+
+🌸 Features
+✨ Hero Section
+
+Full-screen hero image with soft overlay
+
+Custom brand logo (logo.png) displayed instead of text
+
+Primary call-to-action button
+
+Smooth scrolling navigation
+
+✨ Responsive Navigation
+
+Sticky header
+
+Custom PNG cart icon (chart.png)
+
+Mobile-friendly menu structure
+
+✨ About Section
+
+Editorial look using Black Mango for headings
+
+Modern layout with complementary photography
+
+Brand-focused storytelling
+
+✨ Product Showcase
+
+Local images for each product
+
+Clean card layout
+
+Emphasis on visuals and simplicity
+
+✨ Featured Product Section
+
+Highlight block with detailed product description
+
+Multi-image layout
+
+✨ Contact + Footer
+
+Minimal and clean structure
+
+Quick links for navigation
+
+Newsletter input and brand message
+
+🎨 Design Principles
+
+Minimalism & clarity
+
+Strong typographic identity (Black Mango + Montserrat)
+
+Soft color palette & warm visual tone
+
+Mobile-first responsive layout
+
+Consistent spacing & visual balance
+
+🛠️ Technologies Used
+
+HTML5 (semantic structure)
+
+CSS3 (custom styling + utility classes)
+
+Local fonts via @font-face
+
+JavaScript (optional interactions / scroll behavior)
+
+GitHub Pages for hosting
+
+📂 Project Structure
+.
+├── index.html
+├── styles.css
+├── script.js         (optional)
+└── assets/
+    ├── hero.png
+    ├── red.png
+    ├── green.png
+    ├── redlace.png
+    ├── rose.png
+    ├── logo.png
+    ├── chart.png
+    └── fonts/
+        ├── BlackMango-Bold.ttf
+        ├── BlackMango-Black.ttf
+        ├── BlackMango-Light.ttf
+        ├── BlackMango-Medium.ttf
+        ├── BlackMango-ExtraLight.ttf
+        ├── Montserrat-VariableFont_wght.ttf
+        └── Montserrat-Italic-VariableFont.ttf
