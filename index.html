@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Elara Lace</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-content">
+        <button class="logo" onclick="scrollToSection('home')">
+          <span class="logo-main">Elara</span>
+          <span class="logo-accent">Lace</span>
+        </button>
+
+        <nav class="main-nav" aria-label="Main navigation">
+          <a href="#home" class="nav-link">Home</a>
+          <a href="#about" class="nav-link">About</a>
+          <a href="#store" class="nav-link">Store</a>
+          <a href="#contact" class="nav-link">Contact</a>
+        </nav>
+
+        <div class="header-actions">
+          <div class="search-wrapper desktop-only">
+            <label class="sr-only" for="product-search">Search products</label>
+            <input
+              id="product-search"
+              type="text"
+              placeholder="Search products..."
+              class="search-input"
+            />
+          </div>
+          <button class="icon-button desktop-only" aria-label="Wishlist">♡</button>
+          <button class="cart-button" aria-label="Shopping Cart">
+            <img src="assets/chart.png" alt="" class="cart-icon">
+          </button>          
+          <button class="icon-button desktop-only" aria-label="Account">👤</button>
+
+          <button
+            class="icon-button mobile-only"
+            aria-label="Open menu"
+            id="menu-toggle"
+          >
+            ☰
+          </button>
+        </div>
+      </div>
+
+      <nav
+        class="mobile-nav"
+        id="mobile-nav"
+        aria-label="Mobile navigation"
+        hidden
+      >
+        <div class="mobile-nav-inner">
+          <div class="search-wrapper">
+            <label class="sr-only" for="mobile-product-search">
+              Search products
+            </label>
+            <span class="search-icon">🔍</span>
+            <input
+              id="mobile-product-search"
+              type="text"
+              placeholder="Search products..."
+              class="search-input"
+            />
+          </div>
+          <a href="#home" class="nav-link" onclick="closeMobileMenu()">Home</a>
+          <a href="#about" class="nav-link" onclick="closeMobileMenu()">About</a>
+          <a href="#store" class="nav-link" onclick="closeMobileMenu()">Store</a>
+          <a href="#contact" class="nav-link" onclick="closeMobileMenu()">
+            Contact
+          </a>
+          <div class="mobile-icons">
+            <button class="icon-button" aria-label="Wishlist">♡</button>
+            <button class="icon-button" aria-label="Shopping cart">
+                <img src="assets/chart.png" alt="" class="icon-image">
+            </button>
+            <button class="icon-button" aria-label="Account">👤</button>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Hero -->
+      <section id="home" class="hero" aria-labelledby="home-title">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 id="home-title" class="hero-title">
+                <span class="sr-only">Elara Lace</span>
+                <img src="assets/logo.png" alt="Elara Lace" class="hero-logo">
+              </h1>              
+          <p class="hero-subtitle">Established 2024</p>
+          <a href="#store" class="btn btn-primary hero-button">
+            Explore Collection
+          </a>
+        </div>
+      </section>
+
+      <!-- About -->
+      <section id="about" class="section about" aria-labelledby="about-title">
+        <div class="container about-grid">
+          <div class="about-text">
+            <h2 id="about-title" class="section-title">
+              <span class="section-title-main">Elara</span>
+              <span class="section-title-accent">Lace</span>, EST 2024
+            </h2>
+            <div class="about-paragraphs">
+              <p>
+                At <strong>Elara Lace</strong>, we believe lingerie is more than
+                just a garment — it&apos;s a form of self-expression. Designed
+                for modern, sophisticated women, our brand celebrates
+                <strong>elegance</strong>, <strong>comfort</strong>, and
+                <strong>sensuality</strong> in every detail.
+              </p>
+              <p>
+                Inspired by contemporary femininity, <strong>Elara Lace</strong>
+                was created to offer intimate pieces that enhance natural beauty
+                with grace and confidence. Our collections are crafted with
+                <strong>high-quality materials</strong>, <strong>refined
+                lace</strong>, and meticulous <strong>attention to
+                detail</strong> — so every woman feels empowered, comfortable,
+                and radiant, every single day.
+              </p>
+              <p>
+                Tailored for the urban woman with a dynamic lifestyle, the
+                <strong>Elara Lace</strong> experience is entirely online,
+                combining luxury with convenience, privacy, and trust.
+              </p>
+              <div class="about-signoff">
+                <p class="italic-strong">More than lingerie.</p>
+                <p class="italic-strong">
+                  We are the art of sophisticated femininity.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="about-images">
+            <div class="about-image about-image-1"></div>
+            <div class="about-image about-image-2"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Products -->
+      <section
+        id="store"
+        class="section store"
+        aria-labelledby="store-title"
+      >
+        <div class="container">
+          <div class="section-header">
+            <h2 id="store-title" class="section-title">Our Collection</h2>
+            <p class="section-subtitle">
+              Discover our carefully curated selection of luxury lingerie,
+              designed to celebrate your unique beauty.
+            </p>
+          </div>
+
+          <div id="search-feedback" class="search-feedback"></div>
+
+          <div class="product-grid" id="product-grid">
+            <article
+              class="product-card"
+              data-name="Red Lace"
+              data-category="lingerie"
+              data-description="A bold expression of elegance, where passion meets refinement in every delicate lace detail."
+            >
+              <div class="product-image product-image-red-lace"></div>
+              <div class="product-body">
+                <div class="product-header">
+                  <h3 class="product-title">Red Lace</h3>
+                  <span class="badge">lingerie</span>
+                </div>
+                <p class="product-description">
+                  A bold expression of elegance, where passion meets refinement
+                  in every delicate lace detail.
+                </p>
+                <div class="product-footer">
+                  <span class="product-price">€50</span>
+                  <button class="btn btn-primary btn-sm">Add to Cart</button>
+                </div>
+                <p class="product-extra">Free shipping</p>
+              </div>
+            </article>
+
+            <article
+              class="product-card"
+              data-name="Pink Romance"
+              data-category="lingerie"
+              data-description="Timeless sophistication — designed to embrace your power with graceful confidence."
+            >
+              <div class="product-image product-image-pink-romance"></div>
+              <div class="product-body">
+                <div class="product-header">
+                  <h3 class="product-title">Pink Romance</h3>
+                  <span class="badge">lingerie</span>
+                </div>
+                <p class="product-description">
+                  Timeless sophistication — designed to embrace your power with
+                  graceful confidence.
+                </p>
+                <div class="product-footer">
+                  <span class="product-price">€55</span>
+                  <button class="btn btn-primary btn-sm">Add to Cart</button>
+                </div>
+                <p class="product-extra">Free shipping</p>
+              </div>
+            </article>
+
+            <article
+              class="product-card"
+              data-name="Red Set"
+              data-category="premium"
+              data-description="The epitome of elegance and mystery in luxurious black lace."
+            >
+              <div class="product-image product-image-black-set"></div>
+              <div class="product-body">
+                <div class="product-header">
+                  <h3 class="product-title">Red Set</h3>
+                  <span class="badge">premium</span>
+                </div>
+                <p class="product-description">
+                  The epitome of elegance and mystery in luxurious black lace.
+                </p>
+                <div class="product-footer">
+                  <span class="product-price">€65</span>
+                  <button class="btn btn-primary btn-sm">Add to Cart</button>
+                </div>
+                <p class="product-extra">Free shipping</p>
+              </div>
+            </article>
+
+            <article
+              class="product-card"
+              data-name="Delicate Green"
+              data-category="romantic"
+              data-description="Soft romance meets modern femininity in this beautiful design."
+            >
+              <div class="product-image product-image-green-delicate"></div>
+              <div class="product-body">
+                <div class="product-header">
+                  <h3 class="product-title">Delicate Green</h3>
+                  <span class="badge">romantic</span>
+                </div>
+                <p class="product-description">
+                  Soft romance meets modern femininity in this beautiful design.
+                </p>
+                <div class="product-footer">
+                  <span class="product-price">€45</span>
+                  <button class="btn btn-primary btn-sm">Add to Cart</button>
+                </div>
+                <p class="product-extra">Free shipping</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Featured Product -->
+      <section class="section featured" aria-labelledby="featured-title">
+        <div class="container featured-grid">
+          <div class="featured-images">
+            <div class="featured-main-image"></div>
+            <div class="featured-side-images">
+              <div class="featured-small-image"></div>
+              <div class="featured-small-image"></div>
+            </div>
+          </div>
+
+          <div class="featured-content">
+            <h3 id="featured-title" class="section-title">Red Lace</h3>
+            <p class="section-subtitle">
+              A bold expression of elegance, where passion meets refinement in
+              every delicate lace detail.
+            </p>
+
+            <dl class="size-table">
+              <div class="size-row">
+                <dt>Bust:</dt>
+                <dd>80 cm</dd>
+              </div>
+              <div class="size-row">
+                <dt>Waist:</dt>
+                <dd>65 cm</dd>
+              </div>
+              <div class="size-row">
+                <dt>Hips:</dt>
+                <dd>80 cm</dd>
+              </div>
+            </dl>
+
+            <div class="featured-price-row">
+              <span class="featured-price">€50.00</span>
+              <span class="badge badge-success">Free shipping</span>
+            </div>
+
+            <button class="btn btn-primary btn-full">Add to Cart</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section
+        id="contact"
+        class="section contact"
+        aria-labelledby="contact-title"
+      >
+        <div class="container">
+          <div class="section-header center">
+            <h2 id="contact-title" class="section-title">Get in Touch</h2>
+          </div>
+
+          <div class="contact-grid">
+            <div class="card">
+              <h3 class="card-title">Phone</h3>
+              <p class="card-text">+ 351 229 999 999</p>
+            </div>
+            <div class="card">
+              <h3 class="card-title">Email</h3>
+              <p class="card-text">hello@elaralace.com</p>
+            </div>
+            <div class="card">
+              <h3 class="card-title">Social Media</h3>
+              <p class="card-text">@elaralace</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div>
+          <div class="footer-logo">
+            <span class="logo-main">Elara</span>
+            <span class="logo-accent">Lace</span>
+          </div>
+          <p class="footer-text">
+            The art of sophisticated femininity. More than lingerie.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Quick Links</h4>
+          <nav class="footer-links">
+            <a href="#home" class="footer-link">Home</a>
+            <a href="#about" class="footer-link">About</a>
+            <a href="#store" class="footer-link">Store</a>
+            <a href="#contact" class="footer-link">Contact</a>
+          </nav>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Customer Service</h4>
+          <nav class="footer-links">
+            <a href="#" class="footer-link">Size Guide</a>
+            <a href="#" class="footer-link">Shipping Info</a>
+            <a href="#" class="footer-link">Returns</a>
+            <a href="#" class="footer-link">FAQ</a>
+          </nav>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Newsletter</h4>
+          <p class="footer-text">
+            Subscribe for exclusive offers and updates.
+          </p>
+          <form
+            class="newsletter-form"
+            onsubmit="event.preventDefault();"
+          >
+            <label class="sr-only" for="newsletter-email">
+              Email address
+            </label>
+            <input
+              id="newsletter-email"
+              type="email"
+              class="newsletter-input"
+              placeholder="Your email"
+            />
+            <button class="btn btn-secondary btn-sm" type="submit">
+              Subscribe
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-text small">
+          &copy; 2024 Elara Lace. All rights reserved.
+        </p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
