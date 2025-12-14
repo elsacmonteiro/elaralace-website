@@ -1,91 +1,86 @@
-function scrollToSection(id) {
-    const element = document.getElementById(id);
-    if (!element) return;
-    element.scrollIntoView({ behavior: "smooth" });
-  }
-  
-  function closeMobileMenu() {
-    const mobileNav = document.getElementById("mobile-nav");
-    const menuToggle = document.getElementById("menu-toggle");
-    if (mobileNav) mobileNav.hidden = true;
-    if (menuToggle) menuToggle.textContent = "☰";
-  }
-  
-  function initMenu() {
-    const menuToggle = document.getElementById("menu-toggle");
-    const mobileNav = document.getElementById("mobile-nav");
-  
-    if (!menuToggle || !mobileNav) return;
-  
+document.addEventListener("DOMContentLoaded", () => {
+  /* =========================
+     Smooth scroll
+  ========================= */
+  window.scrollToSection = function (id) {
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: "smooth" });
+  };
+
+  /* =========================
+     Mobile menu
+  ========================= */
+  const menuToggle = document.getElementById("menu-toggle");
+  const mobileNav = document.getElementById("mobile-nav");
+
+  window.closeMobileMenu = function () {
+    mobileNav.classList.remove("open");
+    menuToggle.textContent = "☰";
+    menuToggle.setAttribute("aria-expanded", "false");
+  };
+
+  if (menuToggle && mobileNav) {
     menuToggle.addEventListener("click", () => {
-      const isHidden = mobileNav.hidden;
-      mobileNav.hidden = !isHidden;
-      menuToggle.textContent = isHidden ? "✕" : "☰";
+      const isOpen = mobileNav.classList.toggle("open");
+      menuToggle.textContent = isOpen ? "✕" : "☰";
+      menuToggle.setAttribute("aria-expanded", isOpen);
     });
   }
-  
-  function filterProducts(searchText) {
-    const products = Array.from(
-      document.querySelectorAll(".product-card")
-    );
-    const feedback = document.getElementById("search-feedback");
-  
-    const trimmed = searchText.trim().toLowerCase();
-  
-    if (trimmed === "") {
-      products.forEach((card) => {
-        card.style.display = "";
-      });
-      if (feedback) feedback.textContent = "";
-      return;
-    }
-  
-    let visibleCount = 0;
-  
+
+  /* =========================
+     Search filter
+  ========================= */
+  function filterProducts(value) {
+    const products = document.querySelectorAll(".product-card");
+    const text = value.toLowerCase();
+
     products.forEach((card) => {
-      const name = (card.dataset.name || "").toLowerCase();
-      const category = (card.dataset.category || "").toLowerCase();
-      const description = (card.dataset.description || "").toLowerCase();
-  
-      const matches =
-        name.includes(trimmed) ||
-        category.includes(trimmed) ||
-        description.includes(trimmed);
-  
-      card.style.display = matches ? "" : "none";
-      if (matches) visibleCount += 1;
+      const content =
+        card.dataset.name +
+        card.dataset.category +
+        card.dataset.description;
+
+      card.style.display = content.toLowerCase().includes(text)
+        ? ""
+        : "none";
     });
-  
-    if (feedback) {
-      if (visibleCount > 0) {
-        feedback.textContent = `Found ${visibleCount} product${
-          visibleCount !== 1 ? "s" : ""
-        } for "${searchText}"`;
-      } else {
-        feedback.textContent = `No products found for "${searchText}"`;
-      }
-    }
   }
-  
-  function initSearch() {
-    const desktopSearch = document.getElementById("product-search");
-    const mobileSearch = document.getElementById("mobile-product-search");
-  
-    function handleInput(event) {
-      filterProducts(event.target.value);
-    }
-  
-    if (desktopSearch) {
-      desktopSearch.addEventListener("input", handleInput);
-    }
-  
-    if (mobileSearch) {
-      mobileSearch.addEventListener("input", handleInput);
-    }
-  }
-  
-  document.addEventListener("DOMContentLoaded", () => {
-    initMenu();
-    initSearch();
+
+  const searchInputs = [
+    document.getElementById("product-search"),
+    document.getElementById("mobile-product-search"),
+  ];
+
+  searchInputs.forEach((input) => {
+    if (!input) return;
+    input.addEventListener("input", (e) =>
+      filterProducts(e.target.value)
+    );
   });
-  
+
+  /* =========================
+     Featured carousel
+  ========================= */
+  const track = document.querySelector(".carousel-track");
+  const items = document.querySelectorAll(".featured-item");
+  const prevBtn = document.querySelector(".carousel-btn.prev");
+  const nextBtn = document.querySelector(".carousel-btn.next");
+
+  if (!track || !items.length || !prevBtn || !nextBtn) return;
+
+  let index = 0;
+
+  function updateCarousel() {
+    track.style.transform = `translateX(-${index * 100}%)`;
+  }
+
+  nextBtn.addEventListener("click", () => {
+    index = (index + 1) % items.length;
+    updateCarousel();
+  });
+
+  prevBtn.addEventListener("click", () => {
+    index = (index - 1 + items.length) % items.length;
+    updateCarousel();
+  });
+});
